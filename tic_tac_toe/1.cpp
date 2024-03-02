@@ -1,10 +1,18 @@
-#include<iostream>
+#include<conio.h>
+#include<stdio.h>
+#include <iostream>
+#include <string.h>
 using namespace std;
 
 string board[9] = {" ", " ", " ", " ", " ", " ", " ", " ", " "};
 char player = 'X';
 int position;
 
+void pressAnyKey() {
+    cout << "\n\nBam phim bat ky de tiep tuc...";
+    getch();
+    system("cls");
+}
 //khoi tao bang
 void draw()
 {
@@ -126,23 +134,26 @@ void choi_lai()
     cout << "1. Choi lai." << endl;
     cout << "2. Khong." << endl;
     cout << "Nhap lua chon: ";
-    while (!(cin >> lua_chon))
-    {
-        cout << "\nLua chon khong hop le !" << endl;
-        cout << "Nhap lai lua chon: ";
-        cin.clear();
-        cin.ignore();
-    }
+    cin >> lua_chon;
+    switch(lua_chon) {
+        case 1:
 
-    while (!(lua_chon == 1 || lua_chon == 2))
-    {
-        cout << "Nhap lai lua chon. Thu lai!" << endl;
-        cout << "Nhap lua chon: ";
-        cin >> lua_chon;
+            break;
+        case 2:
+            cout << "\nBan da chon thoat chuong trinh!";
+            getch();
+            break;
+        default:
+            cout << "\nKhong co chuc nang nay!";
+            cout << "\nHay chon chuc nang trong hop menu.";
+            pressAnyKey();
+            break;
     }
     
     
 }
+
+
 
 int main(){
     draw();//khoi tao bang
